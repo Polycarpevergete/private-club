@@ -1,0 +1,26 @@
+<% user = User.all %>
+<% post = Post.all %>
+
+<div class = "row">
+  <div class = "col-md-6 col-md-offset-3 posts">
+    <% post.each do |p| %>
+      <div id = "each-post">
+        <% if logged_in? %>
+        <p id = "title" >
+          <%= p.user.name %>
+        </p>
+        <p>
+          <%= p.content %>
+        </p>
+        <% else %>
+        <p id = "title">
+          Anonymous
+        </p>
+        <p>
+          <%= p.content %>
+        </p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
